@@ -1,0 +1,4 @@
+*.sqlite
+**pycache**
+.pytest_cache/
+.mypy_cache/
