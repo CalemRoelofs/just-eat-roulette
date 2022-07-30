@@ -1,4 +1,5 @@
 from typing import List
+
 from fastapi import FastAPI, HTTPException
 
 from just_eat_roulette.utils.just_eat import get_restaurants
@@ -7,6 +8,7 @@ from just_eat_roulette.utils.transforms import (
     sort_by_fastest_delivery_time,
     sort_by_highest_rating,
 )
+
 from .models import CountryCode, RestaurantDTO, SortMethod
 
 app = FastAPI()

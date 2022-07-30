@@ -1,4 +1,4 @@
-import uvicorn
+import uvicorn  # type: ignore
 
 
 def main():

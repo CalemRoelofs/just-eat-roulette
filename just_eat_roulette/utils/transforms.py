@@ -1,4 +1,5 @@
 import random
+
 from just_eat_roulette.utils.models import Restaurant
 
 

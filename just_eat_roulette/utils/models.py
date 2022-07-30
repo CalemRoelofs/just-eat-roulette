@@ -1,4 +1,5 @@
 from tabulate import tabulate
+
 from just_eat_roulette.server.models import RestaurantDTO
 
 
