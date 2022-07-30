@@ -1,7 +1,9 @@
 # Just Eat Roulette
 
-Hungry but don't know what you want? Sick of scrolling endlessly through that white and orange page? Then this is the API for you!  
-Just Eat Roulette will pick a semi-random* restaurant within your area for you, eliminating choice paralysis and letting you get food ASAP.  
+Hungry but don't know what you want?   
+Sick of scrolling endlessly through that white and orange page?   
+Then this is the API for you!  
+Just Eat Roulette will pick a semi-random* restaurant within your area for you, eliminating choice paralysis and letting you get food ASAP.   
 
 _* Results are weighted on a combination of restaurant rating and expected delivery times_
 
