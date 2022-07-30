@@ -4,7 +4,9 @@ from utils.transforms import process_restaurant_list
 from utils.models import Restaurant
 from server.models import CountryCode
 
-requests_cache.install_cache("just_eat_cache", backend="sqlite", expire_after=180)
+requests_cache.install_cache(
+    "just_eat_cache", just_eat_roulette="sqlite", expire_after=180
+)
 
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows; U; Win 9x 4.90; en-US; rv:1.4) Gecko/20030624 Netscape/7.1 (ax)"

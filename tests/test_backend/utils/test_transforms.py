@@ -1,5 +1,5 @@
-from backend.utils import transforms
-from backend.utils.models import Restaurant
+from just_eat_roulette.utils import transforms
+from just_eat_roulette.utils.models import Restaurant
 
 
 class TestTransforms:

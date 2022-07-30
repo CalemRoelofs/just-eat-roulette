@@ -60,7 +60,7 @@ $ poetry install
 ```
 To then run the application:  
 ```
-$ poetry run python backend\main.py
+$ poetry run python just_eat_roulette\main.py
 ```
 To run the tests:  
 ```shell

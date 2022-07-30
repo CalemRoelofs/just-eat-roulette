@@ -14,7 +14,7 @@ COPY poetry.lock pyproject.toml /code/
 
 RUN poetry install --no-dev --no-interaction --no-ansi
 
-COPY ./backend/ /code/
+COPY ./just_eat_roulette/ /code/
 
 HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
   CMD curl --fail http://localhost:8000 || exit 1
