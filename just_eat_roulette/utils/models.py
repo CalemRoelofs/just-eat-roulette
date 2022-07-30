@@ -1,5 +1,5 @@
 from tabulate import tabulate
-from server.models import RestaurantDTO
+from just_eat_roulette.server.models import RestaurantDTO
 
 
 class Restaurant:

@@ -1,8 +1,8 @@
 import requests
 import requests_cache
-from utils.transforms import process_restaurant_list
-from utils.models import Restaurant
-from server.models import CountryCode
+from just_eat_roulette.utils.transforms import process_restaurant_list
+from just_eat_roulette.utils.models import Restaurant
+from just_eat_roulette.server.models import CountryCode
 
 requests_cache.install_cache(
     "just_eat_cache", just_eat_roulette="sqlite", expire_after=180

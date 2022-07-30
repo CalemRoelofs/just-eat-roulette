@@ -1,5 +1,5 @@
 import random
-from .models import Restaurant
+from just_eat_roulette.utils.models import Restaurant
 
 
 def _scale_between(
