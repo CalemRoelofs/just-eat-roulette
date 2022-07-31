@@ -29,8 +29,8 @@ _* Results are weighted on a combination of restaurant rating and expected deliv
 ### Installation  
 It's recommended to run this application using Docker like so:
 ```shell
-$ docker build -t calemroelofs/just-eat-roulette .
-$ docker run -p 8000:8000 calemroelofs/just-eat-roulette
+$ docker build -t calemroelofs/just-eat-roulette:latest .
+$ docker run -p 8000:8000 calemroelofs/just-eat-roulette:latest
 ```
 For running locally, see [Developing and contributing](#Developing-and-contributing)  
 
