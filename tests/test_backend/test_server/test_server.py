@@ -11,7 +11,7 @@ def test_get_index_returns_message():
     response = client.get("/")
 
     assert response.status_code == 200
-    assert response.json()["message"] == "hello world"
+    assert response.url.endswith("/docs")
 
 
 def test_restaurants_returns_process_list_of_restaurants(requests_mock):

@@ -60,11 +60,11 @@ PRs are more than welcome! Please include tests for your changes :)
 
 The package uses [poetry](https://python-poetry.org/) to manage dependencies. To setup your dev env:  
 ```shell
-$ poetry install
+$ poetry install && poetry shell
 ```
-To then run the application:  
+To then run the application with hot reloading:  
 ```
-$ poetry run python just_eat_roulette\main.py
+$ poetry run uvicorn just_eat_roulette.server.server:app --reload
 ```
 To run the tests:  
 ```shell

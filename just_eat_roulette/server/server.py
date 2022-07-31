@@ -1,6 +1,7 @@
 from typing import List
 
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import RedirectResponse
 
 from just_eat_roulette.utils.just_eat import get_restaurants
 from just_eat_roulette.utils.transforms import (
@@ -14,9 +15,9 @@ from .models import CountryCode, RestaurantDTO, SortMethod
 app = FastAPI()
 
 
-@app.get("/", responses={200: {"hello": "world"}})
+@app.get("/")
 async def index():
-    return {"message": "hello world"}
+    return RedirectResponse("/docs", status_code=302)
 
 
 @app.get("/restaurants", response_model=List[RestaurantDTO])
