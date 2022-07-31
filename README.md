@@ -1,5 +1,4 @@
 # Just Eat Roulette
-
 Hungry but don't know what you want?   
 Sick of scrolling endlessly through that white and orange page?   
 Then this is the API for you!  
@@ -9,6 +8,7 @@ _* Results are weighted on a combination of restaurant rating and expected deliv
 
 A demo of this API can be found at https://just-eat-roulette-api.fly.dev/
 
+**DISCLAIMER: This project is in no way affiliated with JUST EAT LIMITED or any subsidiaries**
 ## Features
 - Picks a restaurant to order from for you
   - (`/restaurants/roulette?lat=<latitude>&lon=<longitude>&country_code=<see below>`)
