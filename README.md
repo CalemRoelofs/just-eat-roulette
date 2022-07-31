@@ -3,9 +3,11 @@
 Hungry but don't know what you want?   
 Sick of scrolling endlessly through that white and orange page?   
 Then this is the API for you!  
-Just Eat Roulette will pick a semi-random* restaurant within your area for you, eliminating choice paralysis and letting you get food ASAP.   
+Just Eat Roulette will pick a semi-random* restaurant from [Just Eat](https://www.just-eat.ie/) within your area for you, eliminating choice paralysis and letting you get food ASAP.   
 
 _* Results are weighted on a combination of restaurant rating and expected delivery times_
+
+A demo of this API can be found at https://just-eat-roulette-api.fly.dev/
 
 ## Features
 - Picks a restaurant to order from for you
@@ -56,7 +58,7 @@ $ curl "http://localhost:8000/restaurants/roulette?lat=53.34979241036657&lon=-6.
 ## Developing and contributing  
 PRs are more than welcome! Please include tests for your changes :)  
 
-The package uses poetry to manage dependencies. To setup your dev env:  
+The package uses [poetry](https://python-poetry.org/) to manage dependencies. To setup your dev env:  
 ```shell
 $ poetry install
 ```
