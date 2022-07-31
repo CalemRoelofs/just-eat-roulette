@@ -26,3 +26,7 @@ class SortMethod(str, Enum):
     delivery_time = "delivery_time"
     rating = "rating"
     none = "none"
+
+
+class Response404(BaseModel):
+    detail: str = "No restaurants found in your area"
