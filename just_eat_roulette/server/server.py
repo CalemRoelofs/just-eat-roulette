@@ -1,8 +1,9 @@
 from typing import List
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import RedirectResponse
 from fastapi.openapi.utils import get_openapi
+from requests import HTTPError
 
 from just_eat_roulette.utils.just_eat import get_restaurants
 from just_eat_roulette.utils.transforms import (
@@ -56,13 +57,19 @@ async def redirect_to_docs():
     responses={404: {"model": Response404}},
 )
 async def restaurants(
-    lat: float,
-    lon: float,
+    lat: float = Query(gt=-90, lt=90),
+    lon: float = Query(gt=-180, lt=180),
     country_code: CountryCode = CountryCode.ie,
     sort_method: SortMethod = SortMethod.none,
 ):
     """Returns a list of all restaurants in a given area"""
-    restaurant_list = get_restaurants(lat, lon, country_code)
+    try:
+        restaurant_list = get_restaurants(lat, lon, country_code)
+    except HTTPError as e:
+        raise HTTPException(
+            status_code=400,
+            detail="Could not process request, try again with different parameters",
+        )
 
     if not restaurant_list:
         raise HTTPException(status_code=404, detail="No restaurants found in your area")
@@ -81,10 +88,18 @@ async def restaurants(
     responses={404: {"model": Response404}},
 )
 async def random_restaurant(
-    lat: float, lon: float, country_code: CountryCode = CountryCode.ie
+    lat: float = Query(gt=-90, lt=90),
+    lon: float = Query(gt=-180, lt=180),
+    country_code: CountryCode = CountryCode.ie,
 ):
     """Returns a semi-random restaurant, weighted on rating and delivery time"""
-    restaurant_list = get_restaurants(lat, lon, country_code)
+    try:
+        restaurant_list = get_restaurants(lat, lon, country_code)
+    except HTTPError as e:
+        raise HTTPException(
+            status_code=400,
+            detail="Could not process request, try again with different parameters",
+        )
 
     if not restaurant_list:
         raise HTTPException(status_code=404, detail="No restaurants found in your area")

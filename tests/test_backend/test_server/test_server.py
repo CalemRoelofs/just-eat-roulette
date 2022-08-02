@@ -14,7 +14,7 @@ def test_get_index_returns_message():
     assert response.url.endswith("/docs")
 
 
-def test_restaurants_returns_process_list_of_restaurants(requests_mock):
+def test_restaurants_returns_processed_list_of_restaurants(requests_mock):
     requests_mock.get(
         "/discovery/ie/restaurants/enriched", json={"Restaurants": raw_restaurant_list}
     )
@@ -30,6 +30,23 @@ def test_restaurants_when_no_results_returns_404(requests_mock):
     response = client.get("/restaurants?lat=0&lon=0")
     assert response.status_code == 404
     assert response.json()["detail"] == "No restaurants found in your area"
+
+
+def test_restaurants_when_HTTP_error_returns_400(requests_mock):
+    requests_mock.get("/discovery/ie/restaurants/enriched", status_code=500)
+
+    response = client.get("/restaurants/roulette?lat=0&lon=0")
+    assert response.status_code == 400
+    assert (
+        response.json()["detail"]
+        == "Could not process request, try again with different parameters"
+    )
+
+
+def test_restaurants_with_outofbounds_lat_and_lon_returns_422():
+    response = client.get("/restaurants/roulette?lat=1000&lon=-1000")
+
+    assert response.status_code == 422
 
 
 def test_random_restaurant_returns_restaurant(requests_mock):
@@ -49,3 +66,20 @@ def test_random_restaurant_when_no_results_returns_404(requests_mock):
     response = client.get("/restaurants/roulette?lat=0&lon=0")
     assert response.status_code == 404
     assert response.json()["detail"] == "No restaurants found in your area"
+
+
+def test_random_restaurant_when_HTTP_error_returns_400(requests_mock):
+    requests_mock.get("/discovery/ie/restaurants/enriched", status_code=500)
+
+    response = client.get("/restaurants/roulette?lat=0&lon=0")
+    assert response.status_code == 400
+    assert (
+        response.json()["detail"]
+        == "Could not process request, try again with different parameters"
+    )
+
+
+def test_random_restaurants_with_outofbounds_lat_and_lon_returns_422():
+    response = client.get("/restaurants/roulette?lat=1000&lon=-1000")
+
+    assert response.status_code == 422
